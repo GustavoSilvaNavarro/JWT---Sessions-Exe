@@ -22,22 +22,7 @@ const Register = (props) => {
 
   const handleSubmit = async (e) => {
     // Check the client-session to see how to handle redirects
-    // REMOVE-START
-    e.preventDefault();
-    const { email, password, firstName, lastName } = state;
-    const user = { email, password, firstName, lastName };
-    const res = await apiServiceJWT.register(user);
 
-    if (res.error) {
-      alert(`${res.message}`);
-      setState(initialState);
-    } else {
-      const { accessToken } = res;
-      localStorage.setItem('accessToken', accessToken);
-      props.setIsAuthenticated(true);
-      auth.login(() => props.history.push('/profile'));
-    }
-    // REMOVE END
   };
 
   const validateForm = () => {

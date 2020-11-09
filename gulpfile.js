@@ -7,7 +7,7 @@ const $ = require('gulp-load-plugins')();
 // when generating the glob patterns array for gulp.src()
 function addDefSrcIgnore (srcArr) {
   return srcArr.concat([
-    '!node_modules{,/**}',
+    '!**/node_modules{,/**}',
     '!private{,/**}',
     '!dist{,/**}',
     '!.git{,/**}',

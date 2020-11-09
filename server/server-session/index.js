@@ -17,10 +17,13 @@ app.get('*', (req, res) => {
   res.status(404).send('Sorry, not found 😞');
 });
 
-app.listen(SERVER_PORT, (err) => {
+const server = app.listen(SERVER_PORT, (err) => {
   if (err) {
     console.log(`😞 Sorry, something went wrong! ${err}`); // eslint-disable-line no-console
   } else {
     console.log(`🚀 Server (sessions) is listening on port ${SERVER_PORT}!`); // eslint-disable-line no-console
   }
 });
+
+// server needs to be exported for the tests to work
+module.exports = server;

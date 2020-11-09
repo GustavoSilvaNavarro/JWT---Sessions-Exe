@@ -5,6 +5,7 @@ Today we’ll practice how to add an auth layer to an app. First we’ll use a s
 ![Authenticate it (sessions) login page](docs-assets/auth-it-ses.jpg)
 
 ## Learning objectives
+
 While you are going through the exercise, keep in mind the following learning objectives. If by the end you don’t feel you have accomplished these objectives, please reach out to an instructor or TA.
 
 1. What is authentication, how it works, and basic security concerns.
@@ -22,11 +23,12 @@ Most of the client and server logic is already set up for you. 🚀
 
 1. Have [MongoDB](https://docs.mongodb.com/manual/administration/install-community/) installed, and running at the default port.
 2. Run `npm i` from the `server/server-session` and `client/client-session` folders.
-3. Install [Nodemon](https://github.com/remy/nodemon) as a global dependency to easily monitor your file changes. 
+3. Install [Nodemon](https://github.com/remy/nodemon) as a global dependency to easily monitor your file changes.
 4. From the `server/server-session` directory, run the `nodemon index.js` to start your backend server.
 5. From the `client/client-session` directory, run the `npm start` command to start the client
 
 You can implement sessions manually, but we recommend using the [express-session](https://github.com/expressjs/session) library for this exercise.
+For testing purposes, please name your session `sid`.
 
 ⚠️ Remember to hash your passwords before saving them to the database (e.g. with [bcrypt](https://github.com/kelektiv/node.bcrypt.js)).
 
@@ -38,6 +40,7 @@ You can implement sessions manually, but we recommend using the [express-session
 If you want a recap of how JWT works, [check out these docs](https://jwt.io/).
 
 You’ll notice a lot of code you implemented in the “session” part can be reused here. In what areas will you have to approach things differently? 🤔
+For testing purposes, send the token to the client using a property `req.body.accessToken`.
 
 ## Tasks
 
@@ -49,6 +52,8 @@ For each feature, it’s probably a good idea to start working on the server fir
 2. If the email already exists, the client should alert the user and prompt them to try to register again. There should also be a similar alert if the user tries to sign in with an incorrect email or password.
 3. Upon successfully registering or logging in, the user should be redirected to the profile page. Logging out should destroy the session or remove the JWT and redirect the user to the homepage.
 4. The `/me` and `/logout` routes should be protected by an auth middleware: unauthenticated requests should not be able to query these endpoints.
+
+You can run `npm test` from the root directory to run tests on both the session and the jwt servers.
 
 ## Extra credits
 
