@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Register from './Register';
 import Login from './Login';
 import Profile from './Profile';
@@ -8,30 +8,24 @@ import Home from './Home';
 
 const Dashboard = ({ setIsAuthenticated }) => {
   return (
-    <div className="dashboard">
-      <Switch>
+    <section className="dashboard">
+      <Routes>
         <Route
           path="/register"
-          render={(props) => (
-            <Register {...props} setIsAuthenticated={setIsAuthenticated} />
-          )}
+          element={<Register setIsAuthenticated={setIsAuthenticated} />}
         />
         <Route
           path="/login"
-          render={(props) => (
-            <Login {...props} setIsAuthenticated={setIsAuthenticated} />
-          )}
+          element={<Login setIsAuthenticated={setIsAuthenticated} />}
         />
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile" element={<Profile />} />
         <Route
           path="/logout"
-          render={(props) => (
-            <Logout {...props} setIsAuthenticated={setIsAuthenticated} />
-          )}
+          element={<Logout setIsAuthenticated={setIsAuthenticated} />}
         />
-        <Route path="/" component={Home} />
-      </Switch>
-    </div>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </section>
   );
 };
 

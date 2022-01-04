@@ -11,12 +11,12 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(initialState);
 
   return (
-    <div className="App">
+    <main className="App">
       <Router>
         <Navbar isAuthenticated={isAuthenticated} />
         <Dashboard setIsAuthenticated={setIsAuthenticated} />
       </Router>
-    </div>
+    </main>
   );
 }
 

@@ -2,8 +2,10 @@ import React from 'react';
 import auth from '../utils/auth';
 import apiServiceJWT from './../ApiServiceJWT';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Logout = (props) => {
+  let navigate = useNavigate();
   const handleClick = () => {
     removeToken();
     handleAuth();
@@ -15,11 +17,11 @@ const Logout = (props) => {
 
   const handleAuth = () => {
     props.setIsAuthenticated(false);
-    auth.logout(() => props.history.push('/'));
+    auth.logout(() => navigate('/'));
   };
 
   return (
-    <div>
+    <section>
       <h2>Are you sure you want to log out?</h2>
       <Link to="/">
         <button className="confirm-btn">No</button>
@@ -27,7 +29,7 @@ const Logout = (props) => {
       <button className="confirm-btn" onClick={() => handleClick()}>
         Yes
       </button>
-    </div>
+    </section>
   );
 };
 

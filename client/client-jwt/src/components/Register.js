@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import auth from '../utils/auth';
 import apiServiceJWT from './../ApiServiceJWT';
+import { useNavigate } from 'react-router-dom';
 
 const initialState = {
   email: '',
@@ -10,6 +11,7 @@ const initialState = {
 };
 
 const Register = (props) => {
+  let navigate = useNavigate();
   const [state, setState] = useState(initialState);
 
   const handleChange = (e) => {
@@ -64,7 +66,7 @@ const Register = (props) => {
           onChange={handleChange}
         />
         <button className="form-submit" type="submit" disabled={validateForm()}>
-          &nbsp;Register&nbsp;
+          Register
         </button>
       </form>
     </div>

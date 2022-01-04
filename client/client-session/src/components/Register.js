@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import auth from '../utils/auth';
 import apiService from './../ApiService';
+import { useNavigate } from 'react-router-dom';
 
 const initialState = {
   email: '',
@@ -10,6 +11,7 @@ const initialState = {
 };
 
 const Register = (props) => {
+  const navigate = useNavigate();
   const [state, setState] = useState(initialState);
 
   const handleChange = (e) => {
@@ -26,7 +28,7 @@ const Register = (props) => {
 
       // This sets isAuthenticated = true and redirects to profile
       props.setIsAuthenticated(true);
-      auth.login(() => props.history.push('/profile'));
+      auth.login(() => navigate('/profile'));
 
   };
 
@@ -37,7 +39,7 @@ const Register = (props) => {
   };
 
   return (
-    <div>
+    <section>
       <h2>Register</h2>
       <form className="form" onSubmit={handleSubmit}>
         <input
@@ -72,7 +74,7 @@ const Register = (props) => {
           &nbsp;Register&nbsp;
         </button>
       </form>
-    </div>
+    </section>
   );
 };
 

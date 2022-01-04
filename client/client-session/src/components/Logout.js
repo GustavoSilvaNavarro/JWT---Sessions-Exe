@@ -2,8 +2,10 @@ import React from 'react';
 import auth from '../utils/auth';
 import apiService from './../ApiService';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Logout = (props) => {
+  let navigate = useNavigate();
   const handleClick = () => {
     apiService.logout();
     handleAuth();
@@ -11,7 +13,7 @@ const Logout = (props) => {
 
   const handleAuth = () => {
     props.setIsAuthenticated(false);
-    auth.logout(() => props.history.push('/'));
+    auth.logout(() => navigate('/'));
   };
 
   return (
