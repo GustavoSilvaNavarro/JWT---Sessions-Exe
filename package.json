@@ -1,6 +1,6 @@
 {
   "name": "codeworks-auth-it-exercise",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": true,
   "description": "A Codeworks exercise to train students",
   "scripts": {
