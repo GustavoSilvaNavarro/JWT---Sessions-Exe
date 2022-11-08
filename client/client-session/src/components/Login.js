@@ -23,10 +23,15 @@ const Login = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Add logic to send a request to API service /login
+    const info = await apiService.login(state);
 
+    if (info.message === 'Success') {
       // This sets isAuthenticated = true and redirects to profile
       props.setIsAuthenticated(true);
       auth.login(() => navigate('/profile'));
+    } else {
+      alert(`${info.message} -  Try again`);
+    }
 
   };
 

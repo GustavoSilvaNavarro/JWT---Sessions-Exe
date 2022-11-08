@@ -25,11 +25,15 @@ const Register = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Add logic to send send a request to the API service /register
+    const res = await apiService.register(state);
 
+    if (!res.message) {
       // This sets isAuthenticated = true and redirects to profile
       props.setIsAuthenticated(true);
       auth.login(() => navigate('/profile'));
-
+    } else {
+      alert(`${res.message} - Try with a different user!`);
+    }
   };
 
   const validateForm = () => {
