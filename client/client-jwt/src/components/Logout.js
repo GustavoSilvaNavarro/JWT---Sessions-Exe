@@ -12,7 +12,10 @@ const Logout = (props) => {
   };
 
   const removeToken = () => {
-    apiServiceJWT.logout('accessToken');
+    // apiServiceJWT.logout('accessToken');
+    const token = localStorage.getItem('accessToken');
+    apiServiceJWT.logout(token);
+    localStorage.removeItem('token');
   };
 
   const handleAuth = () => {

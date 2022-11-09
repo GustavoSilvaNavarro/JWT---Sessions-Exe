@@ -5,6 +5,7 @@
   "description": "A Codeworks exercise to train students",
   "scripts": {
     "dev:server-ssh": "nodemon ./server/server-session/index.js",
+    "dev:jwt": "nodemon ./server/server-jwt/index.js",
     "dev:client-ssh": " cd ./client && npm start",
     "test": "DB_NAME=authit_test_db mocha ./test/tests-session.js && mocha ./test/tests-jwt.js",
     "test:session": "DB_NAME=authit_test_db mocha ./test/tests-session.js",

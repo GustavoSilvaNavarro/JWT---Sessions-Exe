@@ -50,7 +50,6 @@ apiService.login = async (user) => {
   } catch (err) {
     console.log(err);
   }
-
 };
 
 apiService.profile = async () => {

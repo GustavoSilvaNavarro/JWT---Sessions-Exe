@@ -22,7 +22,16 @@ const Login = (props) => {
 
   const handleSubmit = async (e) => {
     // Check the session branch to see how to handle redirects
+    e.preventDefault();
+    const data = await apiServiceJWT.login(state);
+    if (!data.message) {
+      localStorage.setItem('accessToken', data);
 
+      props.setIsAuthenticated(true);
+      auth.login(() => navigate('/profile'));
+    } else {
+      alert(`${data.message} - You are a hacker!`);
+    }
   };
 
   const validateForm = () => {
